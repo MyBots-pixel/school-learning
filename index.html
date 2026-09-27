@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LearnHub</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4b5563;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 55px;
+      background: white;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #6b7280;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .selector {
+      max-width: 1050px;
+      margin: 35px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+
+    .selector h2 {
+      margin-bottom: 20px;
+    }
+
+    .selectors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    select {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 16px;
+      background: white;
+    }
+
+    .button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+    }
+
+    .subjects {
+      max-width: 1050px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .subjects h2 {
+      margin-bottom: 20px;
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .subject {
+      background: white;
+      padding: 25px 15px;
+      border-radius: 14px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      font-weight: 700;
+    }
+
+    .subject span {
+      display: block;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: #6b7280;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .selectors {
+        grid-template-columns: 1fr;
+      }
+
+      .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">LearnHub</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Subjects</a>
+      <a href="#">Worksheets</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Learn. Practise. Improve.</h1>
+
+    <p>
+      Interactive learning resources for every year group and subject,
+      with printable worksheets and progressive practice.
+    </p>
+  </section>
+
+  <section class="selector">
+
+    <h2>Find a lesson</h2>
+
+    <div class="selectors">
+
+      <select id="year">
+        <option value="">Choose your year</option>
+        <option>Reception</option>
+        <option>Year 1</option>
+        <option>Year 2</option>
+        <option>Year 3</option>
+        <option>Year 4</option>
+        <option>Year 5</option>
+        <option>Year 6</option>
+        <option>Year 7</option>
+        <option>Year 8</option>
+        <option>Year 9</option>
+        <option>Year 10</option>
+        <option>Year 11</option>
+      </select>
+
+      <select id="subject">
+        <option value="">Choose a subject</option>
+        <option>Maths</option>
+        <option>English</option>
+        <option>Science</option>
+        <option>History</option>
+        <option>Geography</option>
+        <option>Computing</option>
+        <option>Art & Design</option>
+        <option>Music</option>
+        <option>PE</option>
+        <option>RE</option>
+        <option>PSHE</option>
+        <option>Languages</option>
+        <option>Design & Technology</option>
+        <option>Business</option>
+        <option>Drama</option>
+        <option>Media Studies</option>
+        <option>Psychology</option>
+        <option>Sociology</option>
+        <option>Economics</option>
+      </select>
+
+    </div>
+
+    <button class="button" onclick="findLessons()">
+      Find lessons
+    </button>
+
+  </section>
+
+  <section class="subjects">
+
+    <h2>Subjects</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">
+        <span>➗</span>
+        Maths
+      </div>
+
+      <div class="subject">
+        <span>📖</span>
+        English
+      </div>
+
+      <div class="subject">
+        <span>🔬</span>
+        Science
+      </div>
+
+      <div class="subject">
+        <span>🌍</span>
+        Geography
+      </div>
+
+      <div class="subject">
+        <span>🏛️</span>
+        History
+      </div>
+
+      <div class="subject">
+        <span>💻</span>
+        Computing
+      </div>
+
+      <div class="subject">
+        <span>🎨</span>
+        Art & Design
+      </div>
+
+      <div class="subject">
+        <span>🎵</span>
+        Music
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    LearnHub • School learning resources
+  </footer>
+
+  <script>
+    function findLessons() {
+
+      const year = document.getElementById("year").value;
+      const subject = document.getElementById("subject").value;
+
+      if (!year || !subject) {
+        alert("Please choose a year and a subject.");
+        return;
+      }
+
+      alert(
+        "Loading lessons for " +
+        year +
+        " " +
+        subject +
+        "..."
+      );
+    }
+  </script>
+
+</body>
+</html>
