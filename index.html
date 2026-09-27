@@ -17,109 +17,136 @@
       font-family: Arial, Helvetica, sans-serif;
       background: #f5f7fb;
       color: #172033;
+      min-height: 100vh;
     }
 
     header {
-      background: white;
+      background: #ffffff;
       border-bottom: 1px solid #e5e7eb;
-      padding: 18px 40px;
+      height: 72px;
+      padding: 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
       font-size: 25px;
       font-weight: 800;
+      color: #172033;
     }
 
     nav {
       display: flex;
-      gap: 25px;
+      gap: 28px;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #4b5563;
+    nav button {
+      border: none;
+      background: transparent;
+      font-size: 15px;
       font-weight: 600;
+      color: #596273;
+      cursor: pointer;
     }
 
-    nav a:hover {
+    nav button:hover {
       color: #2563eb;
     }
 
     .hero {
+      background: #ffffff;
       text-align: center;
-      padding: 80px 20px 55px;
-      background: white;
+      padding: 75px 20px 60px;
     }
 
     .hero h1 {
       font-size: 48px;
-      margin-bottom: 15px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
     }
 
     .hero p {
-      font-size: 19px;
-      color: #6b7280;
-      max-width: 650px;
+      max-width: 680px;
       margin: auto;
+      color: #667085;
+      font-size: 18px;
       line-height: 1.6;
     }
 
-    .selector {
-      max-width: 1050px;
+    .container {
+      width: min(1100px, calc(100% - 40px));
       margin: 35px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
     }
 
-    .selector h2 {
-      margin-bottom: 20px;
+    .selector-card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid #e6eaf0;
+      box-shadow: 0 8px 30px rgba(20, 30, 50, 0.05);
+    }
+
+    .selector-card h2 {
+      font-size: 23px;
+      margin-bottom: 22px;
     }
 
     .selectors {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 18px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #4b5563;
     }
 
     select {
       width: 100%;
-      padding: 16px;
-      border: 1px solid #d1d5db;
+      padding: 15px;
+      border: 1px solid #d5dbe5;
       border-radius: 10px;
+      background: #ffffff;
+      color: #172033;
       font-size: 16px;
-      background: white;
+      outline: none;
+      cursor: pointer;
     }
 
-    .button {
-      margin-top: 20px;
+    select:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .primary-button {
       width: 100%;
+      margin-top: 20px;
       padding: 16px;
       border: none;
       border-radius: 10px;
       background: #2563eb;
-      color: white;
-      font-size: 17px;
+      color: #ffffff;
+      font-size: 16px;
       font-weight: 700;
       cursor: pointer;
     }
 
-    .button:hover {
+    .primary-button:hover {
       background: #1d4ed8;
     }
 
-    .subjects {
-      max-width: 1050px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-
-    .subjects h2 {
-      margin-bottom: 20px;
+    .section-title {
+      margin: 50px 0 20px;
+      font-size: 25px;
     }
 
     .subject-grid {
@@ -128,30 +155,141 @@
       gap: 15px;
     }
 
-    .subject {
-      background: white;
-      padding: 25px 15px;
-      border-radius: 14px;
-      text-align: center;
+    .subject-card {
+      background: #ffffff;
       border: 1px solid #e5e7eb;
+      border-radius: 15px;
+      padding: 25px 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-3px);
+      border-color: #2563eb;
+      box-shadow: 0 8px 25px rgba(20, 30, 50, 0.08);
+    }
+
+    .subject-icon {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .subject-name {
       font-weight: 700;
     }
 
-    .subject span {
-      display: block;
-      font-size: 32px;
+    #lessonsSection {
+      display: none;
+    }
+
+    .lesson-header {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .lesson-header small {
+      color: #667085;
+      font-weight: 600;
+    }
+
+    .lesson-header h2 {
+      font-size: 30px;
+      margin-top: 8px;
+    }
+
+    .lesson-header p {
+      margin-top: 8px;
+      color: #667085;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .lesson-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 15px;
+      padding: 22px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .lesson-card:hover {
+      border-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(20, 30, 50, 0.07);
+    }
+
+    .lesson-number {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: #eef4ff;
+      color: #2563eb;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .lesson-card h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .lesson-card p {
+      color: #667085;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .back-button {
+      border: none;
+      background: transparent;
+      color: #2563eb;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .worksheet-message {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 35px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .worksheet-message h2 {
       margin-bottom: 10px;
+    }
+
+    .worksheet-message p {
+      color: #667085;
+      line-height: 1.6;
     }
 
     footer {
       text-align: center;
-      padding: 35px;
-      color: #6b7280;
+      padding: 50px 20px;
+      color: #7b8494;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       header {
-        padding: 15px 20px;
+        padding: 0 20px;
       }
 
       nav {
@@ -159,7 +297,7 @@
       }
 
       .hero h1 {
-        font-size: 36px;
+        font-size: 38px;
       }
 
       .selectors {
@@ -169,158 +307,733 @@
       .subject-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .lesson-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .container {
+        width: min(100% - 24px, 1100px);
+      }
+
+      .hero {
+        padding: 55px 15px 45px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .subject-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .subject-card {
+        padding: 20px 8px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">LearnHub</div>
+<header>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Subjects</a>
-      <a href="#">Worksheets</a>
-    </nav>
-  </header>
+  <div class="logo">
+    LearnHub
+  </div>
 
-  <section class="hero">
-    <h1>Learn. Practise. Improve.</h1>
+  <nav>
+    <button onclick="goHome()">Home</button>
+    <button onclick="showSubjects()">Subjects</button>
+    <button onclick="scrollToSelector()">Find a lesson</button>
+  </nav>
 
-    <p>
-      Interactive learning resources for every year group and subject,
-      with printable worksheets and progressive practice.
-    </p>
-  </section>
+</header>
 
-  <section class="selector">
+
+<section class="hero">
+
+  <h1>Learn. Practise. Improve.</h1>
+
+  <p>
+    Learning resources for every year group and subject,
+    with progressive lessons and printable worksheets.
+  </p>
+
+</section>
+
+
+<main class="container">
+
+  <section id="selectorSection" class="selector-card">
 
     <h2>Find a lesson</h2>
 
     <div class="selectors">
 
-      <select id="year">
-        <option value="">Choose your year</option>
-        <option>Reception</option>
-        <option>Year 1</option>
-        <option>Year 2</option>
-        <option>Year 3</option>
-        <option>Year 4</option>
-        <option>Year 5</option>
-        <option>Year 6</option>
-        <option>Year 7</option>
-        <option>Year 8</option>
-        <option>Year 9</option>
-        <option>Year 10</option>
-        <option>Year 11</option>
-      </select>
+      <div class="field">
 
-      <select id="subject">
-        <option value="">Choose a subject</option>
-        <option>Maths</option>
-        <option>English</option>
-        <option>Science</option>
-        <option>History</option>
-        <option>Geography</option>
-        <option>Computing</option>
-        <option>Art & Design</option>
-        <option>Music</option>
-        <option>PE</option>
-        <option>RE</option>
-        <option>PSHE</option>
-        <option>Languages</option>
-        <option>Design & Technology</option>
-        <option>Business</option>
-        <option>Drama</option>
-        <option>Media Studies</option>
-        <option>Psychology</option>
-        <option>Sociology</option>
-        <option>Economics</option>
-      </select>
+        <label for="year">
+          Choose your year
+        </label>
+
+        <select id="year">
+
+          <option value="">
+            Select a year
+          </option>
+
+          <option>Reception</option>
+          <option>Year 1</option>
+          <option>Year 2</option>
+          <option>Year 3</option>
+          <option>Year 4</option>
+          <option>Year 5</option>
+          <option>Year 6</option>
+          <option>Year 7</option>
+          <option>Year 8</option>
+          <option>Year 9</option>
+          <option>Year 10</option>
+          <option>Year 11</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="subject">
+          Choose your subject
+        </label>
+
+        <select id="subject">
+
+          <option value="">
+            Select a subject
+          </option>
+
+          <option>Maths</option>
+          <option>English</option>
+          <option>Science</option>
+          <option>History</option>
+          <option>Geography</option>
+          <option>Computing</option>
+          <option>Art & Design</option>
+          <option>Music</option>
+          <option>PE</option>
+          <option>Religious Education</option>
+          <option>PSHE</option>
+          <option>Languages</option>
+          <option>Design & Technology</option>
+          <option>Business</option>
+          <option>Drama</option>
+          <option>Media Studies</option>
+          <option>Psychology</option>
+          <option>Sociology</option>
+          <option>Economics</option>
+
+        </select>
+
+      </div>
 
     </div>
 
-    <button class="button" onclick="findLessons()">
+
+    <button
+      class="primary-button"
+      onclick="findLessons()"
+    >
       Find lessons
     </button>
 
   </section>
 
-  <section class="subjects">
 
-    <h2>Subjects</h2>
+  <section id="subjectsSection">
+
+    <h2 class="section-title">
+      Subjects
+    </h2>
+
 
     <div class="subject-grid">
 
-      <div class="subject">
-        <span>➗</span>
-        Maths
+      <div class="subject-card" onclick="selectSubject('Maths')">
+        <div class="subject-icon">➗</div>
+        <div class="subject-name">Maths</div>
       </div>
 
-      <div class="subject">
-        <span>📖</span>
-        English
+      <div class="subject-card" onclick="selectSubject('English')">
+        <div class="subject-icon">📖</div>
+        <div class="subject-name">English</div>
       </div>
 
-      <div class="subject">
-        <span>🔬</span>
-        Science
+      <div class="subject-card" onclick="selectSubject('Science')">
+        <div class="subject-icon">🔬</div>
+        <div class="subject-name">Science</div>
       </div>
 
-      <div class="subject">
-        <span>🌍</span>
-        Geography
+      <div class="subject-card" onclick="selectSubject('History')">
+        <div class="subject-icon">🏛️</div>
+        <div class="subject-name">History</div>
       </div>
 
-      <div class="subject">
-        <span>🏛️</span>
-        History
+      <div class="subject-card" onclick="selectSubject('Geography')">
+        <div class="subject-icon">🌍</div>
+        <div class="subject-name">Geography</div>
       </div>
 
-      <div class="subject">
-        <span>💻</span>
-        Computing
+      <div class="subject-card" onclick="selectSubject('Computing')">
+        <div class="subject-icon">💻</div>
+        <div class="subject-name">Computing</div>
       </div>
 
-      <div class="subject">
-        <span>🎨</span>
-        Art & Design
+      <div class="subject-card" onclick="selectSubject('Art & Design')">
+        <div class="subject-icon">🎨</div>
+        <div class="subject-name">Art & Design</div>
       </div>
 
-      <div class="subject">
-        <span>🎵</span>
-        Music
+      <div class="subject-card" onclick="selectSubject('Music')">
+        <div class="subject-icon">🎵</div>
+        <div class="subject-name">Music</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('PE')">
+        <div class="subject-icon">🏃</div>
+        <div class="subject-name">PE</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Religious Education')">
+        <div class="subject-icon">🕊️</div>
+        <div class="subject-name">Religious Education</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('PSHE')">
+        <div class="subject-icon">🧑‍🤝‍🧑</div>
+        <div class="subject-name">PSHE</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Languages')">
+        <div class="subject-icon">🌐</div>
+        <div class="subject-name">Languages</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Design & Technology')">
+        <div class="subject-icon">🔧</div>
+        <div class="subject-name">Design & Technology</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Business')">
+        <div class="subject-icon">💼</div>
+        <div class="subject-name">Business</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Drama')">
+        <div class="subject-icon">🎭</div>
+        <div class="subject-name">Drama</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Media Studies')">
+        <div class="subject-icon">🎬</div>
+        <div class="subject-name">Media Studies</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Psychology')">
+        <div class="subject-icon">🧠</div>
+        <div class="subject-name">Psychology</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Sociology')">
+        <div class="subject-icon">👥</div>
+        <div class="subject-name">Sociology</div>
+      </div>
+
+      <div class="subject-card" onclick="selectSubject('Economics')">
+        <div class="subject-icon">💰</div>
+        <div class="subject-name">Economics</div>
       </div>
 
     </div>
 
   </section>
 
-  <footer>
-    LearnHub • School learning resources
-  </footer>
 
-  <script>
-    function findLessons() {
+  <section id="lessonsSection">
 
-      const year = document.getElementById("year").value;
-      const subject = document.getElementById("subject").value;
+    <button class="back-button" onclick="goBack()">
+      ← Back
+    </button>
 
-      if (!year || !subject) {
-        alert("Please choose a year and a subject.");
-        return;
-      }
+    <div class="lesson-header">
 
-      alert(
-        "Loading lessons for " +
-        year +
-        " " +
-        subject +
-        "..."
+      <small id="lessonYear"></small>
+
+      <h2 id="lessonSubject"></h2>
+
+      <p>
+        Choose a lesson to begin learning.
+      </p>
+
+    </div>
+
+
+    <div
+      id="lessonGrid"
+      class="lesson-grid"
+    ></div>
+
+
+    <div
+      id="worksheetMessage"
+      class="worksheet-message"
+    >
+
+      <h2 id="selectedLesson"></h2>
+
+      <p>
+        The worksheet generator will appear here next.
+        Each lesson will contain 4 sheets with 3
+        progressively harder questions per sheet.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  LearnHub • Learning resources for every year and subject
+</footer>
+
+
+<script>
+
+const lessons = {
+
+  "Maths": [
+    ["Addition", "Adding numbers using year-appropriate methods."],
+    ["Subtraction", "Subtracting numbers and solving subtraction problems."],
+    ["Multiplication", "Multiplication facts, calculations and problems."],
+    ["Division", "Division calculations and real-world problems."],
+    ["Fractions", "Understanding, comparing and calculating with fractions."],
+    ["Decimals", "Reading, comparing and calculating with decimals."],
+    ["Percentages", "Understanding and calculating percentages."],
+    ["Geometry", "Shapes, angles, lines and geometric reasoning."],
+    ["Measurement", "Length, mass, capacity, area and measurement."],
+    ["Problem Solving", "Using mathematical skills to solve problems."]
+  ],
+
+  "English": [
+    ["Reading", "Reading skills and understanding different texts."],
+    ["Comprehension", "Answering questions about what you have read."],
+    ["Grammar", "Understanding and applying grammatical rules."],
+    ["Punctuation", "Using punctuation accurately."],
+    ["Spelling", "Practising spelling patterns and vocabulary."],
+    ["Vocabulary", "Building and applying new vocabulary."],
+    ["Creative Writing", "Creating interesting and imaginative writing."],
+    ["Poetry", "Exploring and creating poetry."],
+    ["Non-Fiction Writing", "Writing clear factual texts."],
+    ["Story Writing", "Planning and writing stories."]
+  ],
+
+  "Science": [
+    ["Living Things", "Exploring living organisms and their characteristics."],
+    ["Animals", "Learning about animals and classification."],
+    ["Plants", "Exploring plant structures and life cycles."],
+    ["Materials", "Investigating materials and their properties."],
+    ["Forces", "Understanding pushes, pulls and forces."],
+    ["Light", "Exploring light, shadows and reflection."],
+    ["Electricity", "Learning about circuits and electrical systems."],
+    ["Earth & Space", "Exploring Earth, the Solar System and space."],
+    ["Evolution", "Understanding adaptation and evolution."],
+    ["Scientific Investigation", "Planning and analysing scientific investigations."]
+  ],
+
+  "History": [
+    ["Ancient Civilisations", "Exploring early human civilisations."],
+    ["Romans", "Learning about Roman Britain and the Roman Empire."],
+    ["Anglo-Saxons", "Exploring Anglo-Saxon Britain."],
+    ["Vikings", "Learning about Viking society and settlement."],
+    ["Tudors", "Exploring Tudor England."],
+    ["Victorians", "Learning about Victorian Britain."],
+    ["World War I", "Understanding the First World War."],
+    ["World War II", "Exploring the Second World War."],
+    ["Local History", "Investigating history in the local area."],
+    ["Historical Sources", "Learning how historians investigate the past."]
+  ],
+
+  "Geography": [
+    ["Maps", "Using maps, symbols and coordinates."],
+    ["Countries", "Learning about countries and places around the world."],
+    ["Continents", "Exploring the world's continents."],
+    ["Rivers", "Understanding rivers and their processes."],
+    ["Mountains", "Exploring mountains and their formation."],
+    ["Climate", "Learning about climate around the world."],
+    ["Weather", "Understanding weather and weather patterns."],
+    ["Population", "Exploring population and population change."],
+    ["Settlements", "Learning about settlements and human geography."],
+    ["Natural Resources", "Understanding Earth's natural resources."]
+  ],
+
+  "Computing": [
+    ["Algorithms", "Understanding step-by-step instructions."],
+    ["Programming", "Learning programming concepts."],
+    ["Coding", "Creating and understanding code."],
+    ["Internet Safety", "Learning how to stay safe online."],
+    ["Networks", "Understanding computer networks."],
+    ["Data", "Collecting, organising and interpreting data."],
+    ["Digital Literacy", "Using digital technology effectively."],
+    ["Computational Thinking", "Breaking problems into smaller parts."],
+    ["Hardware", "Understanding computer hardware."],
+    ["Software", "Exploring different types of software."]
+  ],
+
+  "Art & Design": [
+    ["Drawing", "Developing drawing techniques."],
+    ["Painting", "Exploring painting techniques and materials."],
+    ["Colour", "Understanding colour theory."],
+    ["Sculpture", "Creating and analysing 3D artwork."],
+    ["Printing", "Exploring printmaking techniques."],
+    ["Textiles", "Working with textiles and patterns."],
+    ["Artists", "Learning about important artists."],
+    ["Design", "Developing creative design ideas."],
+    ["Observation", "Developing observational skills."],
+    ["Creative Projects", "Planning and developing artwork."]
+  ],
+
+  "Music": [
+    ["Rhythm", "Understanding rhythm and beat."],
+    ["Melody", "Exploring melody and pitch."],
+    ["Instruments", "Learning about musical instruments."],
+    ["Notation", "Reading and understanding musical notation."],
+    ["Composition", "Creating original music."],
+    ["Performance", "Developing performance skills."],
+    ["Musical Styles", "Exploring different musical styles."],
+    ["Listening", "Developing active listening skills."],
+    ["Sound", "Understanding sound and music."],
+    ["Music History", "Exploring music through history."]
+  ],
+
+  "PE": [
+    ["Fitness", "Developing fitness and physical health."],
+    ["Athletics", "Running, jumping and throwing skills."],
+    ["Football", "Football skills and teamwork."],
+    ["Basketball", "Basketball skills and tactics."],
+    ["Gymnastics", "Movement, balance and coordination."],
+    ["Dance", "Movement and dance techniques."],
+    ["Tennis", "Tennis skills and tactics."],
+    ["Teamwork", "Developing teamwork and communication."],
+    ["Sportsmanship", "Fair play and sporting behaviour."],
+    ["Healthy Lifestyle", "Understanding physical health."]
+  ],
+
+  "Religious Education": [
+    ["Christianity", "Exploring Christian beliefs and traditions."],
+    ["Islam", "Exploring Islamic beliefs and traditions."],
+    ["Judaism", "Exploring Jewish beliefs and traditions."],
+    ["Hinduism", "Exploring Hindu beliefs and traditions."],
+    ["Buddhism", "Exploring Buddhist beliefs and traditions."],
+    ["Sikhism", "Exploring Sikh beliefs and traditions."],
+    ["Festivals", "Exploring religious festivals."],
+    ["Beliefs", "Comparing beliefs and ideas."],
+    ["Ethics", "Exploring ethical questions."],
+    ["Religious Practices", "Exploring religious practices."]
+  ],
+
+  "PSHE": [
+    ["Relationships", "Understanding healthy relationships."],
+    ["Wellbeing", "Learning about mental and emotional wellbeing."],
+    ["Safety", "Understanding personal and online safety."],
+    ["Money", "Developing financial awareness."],
+    ["Citizenship", "Understanding communities and citizenship."],
+    ["Responsibilities", "Exploring personal responsibilities."],
+    ["Careers", "Exploring future careers and skills."],
+    ["Health", "Learning about healthy lifestyles."],
+    ["Respect", "Understanding respect and inclusion."],
+    ["Decision Making", "Developing decision-making skills."]
+  ],
+
+  "Languages": [
+    ["Vocabulary", "Learning useful vocabulary."],
+    ["Grammar", "Understanding language grammar."],
+    ["Greetings", "Learning greetings and introductions."],
+    ["Numbers", "Learning numbers and counting."],
+    ["Family", "Talking about family."],
+    ["Food", "Learning food and drink vocabulary."],
+    ["School", "Talking about school life."],
+    ["Hobbies", "Talking about hobbies and interests."],
+    ["Travel", "Using language for travel."],
+    ["Conversation", "Developing conversational skills."]
+  ],
+
+  "Design & Technology": [
+    ["Structures", "Designing and building structures."],
+    ["Mechanisms", "Understanding mechanical systems."],
+    ["Textiles", "Designing and creating textile products."],
+    ["Electronics", "Exploring electronic systems."],
+    ["Cooking", "Developing cooking and nutrition skills."],
+    ["Materials", "Understanding materials and their uses."],
+    ["Product Design", "Designing useful products."],
+    ["Engineering", "Exploring engineering principles."],
+    ["Prototyping", "Creating and testing prototypes."],
+    ["Evaluation", "Evaluating designs and products."]
+  ],
+
+  "Business": [
+    ["Business Basics", "Understanding what businesses do."],
+    ["Finance", "Understanding business finance."],
+    ["Marketing", "Exploring marketing and advertising."],
+    ["Customers", "Understanding customers and markets."],
+    ["Entrepreneurship", "Exploring entrepreneurship."],
+    ["Products", "Understanding products and services."],
+    ["Competition", "Exploring competition between businesses."],
+    ["Business Planning", "Creating simple business plans."],
+    ["Employment", "Understanding work and employment."],
+    ["Business Ethics", "Exploring ethical business decisions."]
+  ],
+
+  "Drama": [
+    ["Performance", "Developing performance skills."],
+    ["Characters", "Creating believable characters."],
+    ["Scripts", "Understanding and writing scripts."],
+    ["Improvisation", "Developing improvisation skills."],
+    ["Stagecraft", "Exploring stage design and production."],
+    ["Voice", "Developing voice techniques."],
+    ["Movement", "Using movement in performance."],
+    ["Drama Techniques", "Learning theatrical techniques."],
+    ["Directing", "Understanding directing."],
+    ["Evaluation", "Evaluating performances."]
+  ],
+
+  "Media Studies": [
+    ["Film", "Understanding film language."],
+    ["Television", "Exploring television media."],
+    ["Advertising", "Understanding advertising techniques."],
+    ["Journalism", "Exploring news and journalism."],
+    ["Digital Media", "Understanding digital media."],
+    ["Social Media", "Exploring social media."],
+    ["Photography", "Developing photography skills."],
+    ["Representation", "Exploring representation in media."],
+    ["Audience", "Understanding media audiences."],
+    ["Media Language", "Understanding how media communicates."]
+  ],
+
+  "Psychology": [
+    ["Memory", "Understanding how memory works."],
+    ["Development", "Exploring human development."],
+    ["Behaviour", "Understanding human behaviour."],
+    ["Social Psychology", "Exploring behaviour in groups."],
+    ["Research", "Understanding psychological research."],
+    ["Learning", "Exploring theories of learning."],
+    ["Emotion", "Understanding emotions."],
+    ["Personality", "Exploring personality."],
+    ["Brain", "Learning about the brain."],
+    ["Psychological Studies", "Exploring important psychological studies."]
+  ],
+
+  "Sociology": [
+    ["Family", "Exploring families and relationships."],
+    ["Education", "Understanding education and society."],
+    ["Crime", "Exploring crime and society."],
+    ["Culture", "Understanding culture and identity."],
+    ["Inequality", "Exploring social inequality."],
+    ["Social Class", "Understanding social class."],
+    ["Media", "Exploring media and society."],
+    ["Youth", "Understanding young people in society."],
+    ["Research Methods", "Understanding sociological research."],
+    ["Society", "Exploring how societies work."]
+  ],
+
+  "Economics": [
+    ["Markets", "Understanding markets."],
+    ["Supply", "Understanding supply."],
+    ["Demand", "Understanding demand."],
+    ["Money", "Exploring money and finance."],
+    ["Inflation", "Understanding inflation."],
+    ["Employment", "Exploring employment and unemployment."],
+    ["Trade", "Understanding international trade."],
+    ["Businesses", "Exploring businesses and the economy."],
+    ["Government", "Understanding government and the economy."],
+    ["Economic Choices", "Exploring economic decision making."]
+  ]
+
+};
+
+
+function findLessons() {
+
+  const year = document.getElementById("year").value;
+  const subject = document.getElementById("subject").value;
+
+  if (!year || !subject) {
+
+    alert("Please choose a year and a subject.");
+
+    return;
+  }
+
+  showLessons(year, subject);
+}
+
+
+function selectSubject(subject) {
+
+  const yearSelect = document.getElementById("year");
+
+  if (!yearSelect.value) {
+
+    alert("Please choose your year first.");
+
+    scrollToSelector();
+
+    return;
+  }
+
+  document.getElementById("subject").value = subject;
+
+  showLessons(
+    yearSelect.value,
+    subject
+  );
+}
+
+
+function showLessons(year, subject) {
+
+  document.getElementById("selectorSection").style.display = "none";
+
+  document.getElementById("subjectsSection").style.display = "none";
+
+  document.getElementById("lessonsSection").style.display = "block";
+
+  document.getElementById("lessonYear").textContent = year;
+
+  document.getElementById("lessonSubject").textContent = subject;
+
+  const lessonGrid =
+    document.getElementById("lessonGrid");
+
+  lessonGrid.innerHTML = "";
+
+  const subjectLessons =
+    lessons[subject] || [];
+
+  subjectLessons.forEach((lesson, index) => {
+
+    const card =
+      document.createElement("div");
+
+    card.className = "lesson-card";
+
+    card.onclick = function() {
+
+      openLesson(
+        year,
+        subject,
+        lesson[0]
       );
-    }
-  </script>
+
+    };
+
+    card.innerHTML = `
+
+      <div class="lesson-number">
+        ${index + 1}
+      </div>
+
+      <h3>
+        ${lesson[0]}
+      </h3>
+
+      <p>
+        ${lesson[1]}
+      </p>
+
+    `;
+
+    lessonGrid.appendChild(card);
+
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+function openLesson(year, subject, lesson) {
+
+  document.getElementById("worksheetMessage").style.display = "block";
+
+  document.getElementById("selectedLesson").textContent =
+    year + " • " + subject + " • " + lesson;
+
+  window.scrollTo({
+    top: document.getElementById("worksheetMessage").offsetTop - 100,
+    behavior: "smooth"
+  });
+
+}
+
+
+function goBack() {
+
+  document.getElementById("lessonsSection").style.display = "none";
+
+  document.getElementById("selectorSection").style.display = "block";
+
+  document.getElementById("subjectsSection").style.display = "block";
+
+  document.getElementById("worksheetMessage").style.display = "none";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+function goHome() {
+
+  goBack();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+function showSubjects() {
+
+  goBack();
+
+  document.getElementById("subjectsSection").scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
+
+
+function scrollToSelector() {
+
+  document.getElementById("selectorSection").scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
+
+</script>
 
 </body>
 </html>
