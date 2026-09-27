@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>LearnHub</title>
+<title>Learning Worksheets</title>
 
 <style>
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,7 +20,7 @@ body {
 
 header {
     height: 70px;
-    background: white;
+    background: #fff;
     border-bottom: 1px solid #e5e7eb;
     display: flex;
     align-items: center;
@@ -30,11 +28,11 @@ header {
     padding: 0 35px;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
 }
 
 .logo {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 800;
 }
 
@@ -43,35 +41,30 @@ nav {
     gap: 20px;
 }
 
-nav button {
+nav button,
+.back {
     border: 0;
     background: none;
+    color: #2563eb;
     font-weight: 700;
     cursor: pointer;
-    color: #596273;
-}
-
-nav button:hover {
-    color: #2563eb;
 }
 
 .hero {
     background: white;
     text-align: center;
-    padding: 65px 20px;
+    padding: 60px 20px;
 }
 
 .hero h1 {
-    font-size: 45px;
-    margin-bottom: 15px;
+    font-size: 44px;
+    margin-bottom: 14px;
 }
 
 .hero p {
-    max-width: 700px;
-    margin: auto;
     color: #667085;
-    line-height: 1.6;
     font-size: 18px;
+    line-height: 1.6;
 }
 
 .container {
@@ -79,11 +72,18 @@ nav button:hover {
     margin: 35px auto;
 }
 
-.card {
+.card,
+.lesson-header,
+.lesson-card,
+.subject-card,
+.worksheet-controls {
     background: white;
-    border-radius: 18px;
+    border: 1px solid #e1e6ee;
+    border-radius: 15px;
+}
+
+.card {
     padding: 30px;
-    border: 1px solid #e5e7eb;
 }
 
 .selector-grid {
@@ -94,16 +94,16 @@ nav button:hover {
 }
 
 label {
-    display: block;
     font-weight: 700;
-    margin-bottom: 8px;
 }
 
 select {
+    display: block;
     width: 100%;
+    margin-top: 8px;
     padding: 14px;
     border: 1px solid #ccd3df;
-    border-radius: 9px;
+    border-radius: 8px;
     background: white;
     font-size: 16px;
 }
@@ -113,7 +113,7 @@ select {
     margin-top: 20px;
     padding: 15px;
     border: 0;
-    border-radius: 9px;
+    border-radius: 8px;
     background: #2563eb;
     color: white;
     font-weight: 700;
@@ -136,17 +136,17 @@ select {
 }
 
 .subject-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 15px;
     padding: 25px 10px;
     text-align: center;
     cursor: pointer;
+    transition: .15s;
 }
 
-.subject-card:hover {
-    border-color: #2563eb;
+.subject-card:hover,
+.lesson-card:hover {
     transform: translateY(-2px);
+    border-color: #2563eb;
+    box-shadow: 0 8px 25px rgba(0,0,0,.06);
 }
 
 .subject-icon {
@@ -164,18 +164,10 @@ select {
 }
 
 .back {
-    background: none;
-    border: 0;
-    color: #2563eb;
-    font-weight: 700;
-    cursor: pointer;
     margin-bottom: 20px;
 }
 
 .lesson-header {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 15px;
     padding: 25px;
     margin-bottom: 20px;
 }
@@ -201,24 +193,16 @@ select {
 }
 
 .lesson-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 15px;
     padding: 22px;
     cursor: pointer;
 }
 
-.lesson-card:hover {
-    border-color: #2563eb;
-    box-shadow: 0 5px 20px rgba(0,0,0,.06);
-}
-
 .lesson-number {
-    width: 34px;
-    height: 34px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
     background: #eef4ff;
     color: #2563eb;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -227,39 +211,49 @@ select {
 }
 
 .lesson-card p {
-    margin-top: 7px;
     color: #667085;
-    font-size: 14px;
+    margin-top: 7px;
     line-height: 1.5;
+    font-size: 14px;
 }
 
 .worksheet-controls {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px solid #e5e7eb;
-    margin-bottom: 25px;
+    padding: 18px;
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
 }
 
 .control {
     padding: 12px 16px;
     border: 0;
     border-radius: 8px;
-    background: #eef2f7;
+    background: #edf1f6;
     font-weight: 700;
     cursor: pointer;
-}
-
-.control:hover {
-    background: #dfe5ee;
 }
 
 .control.blue {
     background: #2563eb;
     color: white;
+}
+
+.answers {
+    display: none;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.answers h3 {
+    margin-bottom: 10px;
+}
+
+.answers div {
+    margin: 7px 0;
 }
 
 .sheet {
@@ -268,18 +262,23 @@ select {
     border-radius: 10px;
     padding: 45px;
     margin-bottom: 40px;
+    min-height: 800px;
     page-break-after: always;
+}
+
+.sheet:last-child {
+    page-break-after: auto;
 }
 
 .sheet-header {
     text-align: center;
     border-bottom: 2px solid #172033;
     padding-bottom: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .sheet-header h1 {
-    font-size: 28px;
+    font-size: 27px;
 }
 
 .sheet-header h2 {
@@ -292,8 +291,19 @@ select {
     font-weight: 700;
 }
 
+.difficulty {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #eef4ff;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 700;
+}
+
 .question {
-    margin-bottom: 45px;
+    margin-bottom: 55px;
     page-break-inside: avoid;
 }
 
@@ -305,22 +315,12 @@ select {
 
 .question-text {
     font-size: 17px;
-    line-height: 1.6;
+    line-height: 1.65;
     margin-bottom: 15px;
 }
 
-.answer-box {
-    width: 100%;
-    min-height: 100px;
-    border: 2px solid #aeb7c5;
-    border-radius: 7px;
-    resize: vertical;
-    padding: 10px;
-    font-size: 16px;
-}
-
 .small-answer {
-    width: 200px;
+    width: 230px;
     height: 48px;
     border: 2px solid #aeb7c5;
     border-radius: 7px;
@@ -328,14 +328,24 @@ select {
     font-size: 18px;
 }
 
+.answer-box {
+    width: 100%;
+    min-height: 110px;
+    border: 2px solid #aeb7c5;
+    border-radius: 7px;
+    padding: 10px;
+    resize: vertical;
+    font-size: 16px;
+}
+
 .working-box {
     width: 100%;
-    height: 120px;
+    height: 110px;
     border: 2px dashed #aeb7c5;
     border-radius: 7px;
     padding: 10px;
-    margin-bottom: 12px;
     resize: vertical;
+    margin-bottom: 12px;
 }
 
 .options {
@@ -344,10 +354,12 @@ select {
 }
 
 .option {
+    display: block;
     border: 1px solid #d4dae3;
     padding: 13px;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: 400;
 }
 
 .option:hover {
@@ -358,21 +370,16 @@ select {
     margin-right: 8px;
 }
 
-.answers {
-    display: none;
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+.truefalse {
+    display: flex;
+    gap: 12px;
 }
 
-.answers h3 {
-    margin-bottom: 10px;
-}
-
-.answers div {
-    margin-bottom: 7px;
+.truefalse label {
+    border: 1px solid #d4dae3;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
 }
 
 footer {
@@ -382,17 +389,13 @@ footer {
 }
 
 @media(max-width:800px) {
-
-    .selector-grid {
+    .selector-grid,
+    .lesson-grid {
         grid-template-columns: 1fr;
     }
 
     .subject-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .lesson-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .sheet {
@@ -402,11 +405,9 @@ footer {
     .hero h1 {
         font-size: 35px;
     }
-
 }
 
 @media print {
-
     header,
     .hero,
     #selectorSection,
@@ -414,7 +415,8 @@ footer {
     #lessonsSection,
     .worksheet-controls,
     footer,
-    .back {
+    .back,
+    .answers {
         display: none !important;
     }
 
@@ -434,41 +436,32 @@ footer {
     .sheet {
         border: 0;
         margin: 0;
-        padding: 15mm;
-        border-radius: 0;
+        padding: 12mm;
+        min-height: 0;
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-    <div class="logo">LearnHub</div>
+    <div class="logo">Learning Worksheets</div>
 
     <nav>
         <button onclick="home()">Home</button>
         <button onclick="subjects()">Subjects</button>
         <button onclick="findLesson()">Find a lesson</button>
     </nav>
-
 </header>
 
-
 <section class="hero">
-
     <h1>Learn. Practise. Improve.</h1>
-
     <p>
-        Learning resources for every year group and subject,
-        with lessons, questions and printable worksheets.
+        Choose a year, subject and lesson to create four progressive
+        printable worksheets.
     </p>
-
 </section>
-
 
 <main class="container">
 
@@ -479,13 +472,10 @@ footer {
     <div class="selector-grid">
 
         <div>
-
-            <label>Year</label>
+            <label for="year">Year</label>
 
             <select id="year">
-
                 <option value="">Choose a year</option>
-
                 <option>Reception</option>
                 <option>Year 1</option>
                 <option>Year 2</option>
@@ -498,42 +488,15 @@ footer {
                 <option>Year 9</option>
                 <option>Year 10</option>
                 <option>Year 11</option>
-
             </select>
-
         </div>
 
-
         <div>
-
-            <label>Subject</label>
+            <label for="subject">Subject</label>
 
             <select id="subject">
-
                 <option value="">Choose a subject</option>
-
-                <option>Maths</option>
-                <option>English</option>
-                <option>Science</option>
-                <option>History</option>
-                <option>Geography</option>
-                <option>Computing</option>
-                <option>Art & Design</option>
-                <option>Music</option>
-                <option>PE</option>
-                <option>Religious Education</option>
-                <option>PSHE</option>
-                <option>Languages</option>
-                <option>Design & Technology</option>
-                <option>Business</option>
-                <option>Drama</option>
-                <option>Media Studies</option>
-                <option>Psychology</option>
-                <option>Sociology</option>
-                <option>Economics</option>
-
             </select>
-
         </div>
 
     </div>
@@ -544,112 +507,13 @@ footer {
 
 </section>
 
-
 <section id="subjectsSection">
 
     <h2 class="section-title">Subjects</h2>
 
-    <div class="subject-grid">
-
-        <div class="subject-card" onclick="chooseSubject('Maths')">
-            <div class="subject-icon">➗</div>
-            <div class="subject-name">Maths</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('English')">
-            <div class="subject-icon">📖</div>
-            <div class="subject-name">English</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Science')">
-            <div class="subject-icon">🔬</div>
-            <div class="subject-name">Science</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('History')">
-            <div class="subject-icon">🏛️</div>
-            <div class="subject-name">History</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Geography')">
-            <div class="subject-icon">🌍</div>
-            <div class="subject-name">Geography</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Computing')">
-            <div class="subject-icon">💻</div>
-            <div class="subject-name">Computing</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Art & Design')">
-            <div class="subject-icon">🎨</div>
-            <div class="subject-name">Art & Design</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Music')">
-            <div class="subject-icon">🎵</div>
-            <div class="subject-name">Music</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('PE')">
-            <div class="subject-icon">🏃</div>
-            <div class="subject-name">PE</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Religious Education')">
-            <div class="subject-icon">🕊️</div>
-            <div class="subject-name">Religious Education</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('PSHE')">
-            <div class="subject-icon">🧑‍🤝‍🧑</div>
-            <div class="subject-name">PSHE</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Languages')">
-            <div class="subject-icon">🌐</div>
-            <div class="subject-name">Languages</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Design & Technology')">
-            <div class="subject-icon">🔧</div>
-            <div class="subject-name">Design & Technology</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Business')">
-            <div class="subject-icon">💼</div>
-            <div class="subject-name">Business</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Drama')">
-            <div class="subject-icon">🎭</div>
-            <div class="subject-name">Drama</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Media Studies')">
-            <div class="subject-icon">🎬</div>
-            <div class="subject-name">Media Studies</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Psychology')">
-            <div class="subject-icon">🧠</div>
-            <div class="subject-name">Psychology</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Sociology')">
-            <div class="subject-icon">👥</div>
-            <div class="subject-name">Sociology</div>
-        </div>
-
-        <div class="subject-card" onclick="chooseSubject('Economics')">
-            <div class="subject-icon">💰</div>
-            <div class="subject-name">Economics</div>
-        </div>
-
-    </div>
+    <div id="subjectGrid" class="subject-grid"></div>
 
 </section>
-
 
 <section id="lessonsSection">
 
@@ -664,7 +528,8 @@ footer {
         <h2 id="chosenSubject"></h2>
 
         <p>
-            Choose a lesson to generate all four worksheets.
+            Choose one of the 10 lessons below.
+            Each lesson contains four progressively harder worksheets.
         </p>
 
     </div>
@@ -672,7 +537,6 @@ footer {
     <div id="lessonGrid" class="lesson-grid"></div>
 
 </section>
-
 
 <section id="worksheetSection">
 
@@ -698,18 +562,15 @@ footer {
             🔄 New questions
         </button>
 
-        <button class="control" onclick="showAnswers()">
+        <button class="control" onclick="toggleAnswers()">
             👁️ Show answers
         </button>
 
     </div>
 
     <div id="answers" class="answers">
-
         <h3>Answer guide</h3>
-
         <div id="answerContent"></div>
-
     </div>
 
     <div id="worksheets"></div>
@@ -718,49 +579,400 @@ footer {
 
 </main>
 
-
 <footer>
-    LearnHub • Learning resources for every year and subject
+    Learning worksheets for every year and subject.
 </footer>
-
 
 <script>
 
-const lessonNames = [
+/* =========================================================
+   SUBJECTS
+========================================================= */
 
-    ["Addition","Adding numbers and solving addition problems."],
-    ["Subtraction","Subtracting numbers and solving subtraction problems."],
-    ["Multiplication","Multiplication facts and calculations."],
-    ["Division","Division calculations and problems."],
-    ["Fractions","Understanding and calculating with fractions."],
-    ["Decimals","Understanding and using decimals."],
-    ["Percentages","Calculating and understanding percentages."],
-    ["Geometry","Shapes, angles and geometric reasoning."],
-    ["Measurement","Length, mass, capacity, area and measurement."],
-    ["Problem Solving","Using knowledge to solve problems."]
+const subjectData = {
 
-];
+    "Maths": {
+        icon: "➗",
+        lessons: [
+            ["Number and Place Value", "Understanding numbers, place value and number size."],
+            ["Addition", "Adding numbers using increasingly challenging methods."],
+            ["Subtraction", "Subtracting numbers and solving subtraction problems."],
+            ["Multiplication", "Multiplication facts, calculations and problems."],
+            ["Division", "Division, quotients and division problems."],
+            ["Fractions", "Fractions, equivalent fractions and fraction calculations."],
+            ["Decimals", "Decimal numbers and decimal calculations."],
+            ["Percentages", "Understanding and calculating percentages."],
+            ["Geometry and Angles", "Shapes, angles and geometric reasoning."],
+            ["Measurement", "Length, mass, capacity, area and measurement."]
+        ]
+    },
+
+    "English": {
+        icon: "📖",
+        lessons: [
+            ["Nouns", "Identifying and using nouns."],
+            ["Verbs", "Identifying and improving verbs."],
+            ["Adjectives", "Using descriptive adjectives effectively."],
+            ["Adverbs", "Understanding and using adverbs."],
+            ["Punctuation", "Using punctuation accurately."],
+            ["Sentence Structure", "Building clear and effective sentences."],
+            ["Paragraphs", "Organising ideas into paragraphs."],
+            ["Vocabulary", "Developing and applying vocabulary."],
+            ["Comprehension", "Reading and understanding information."],
+            ["Creative Writing", "Planning and writing imaginative pieces."]
+        ]
+    },
+
+    "Science": {
+        icon: "🔬",
+        lessons: [
+            ["Living Things", "Identifying and classifying living things."],
+            ["Plants", "Plant structures, growth and reproduction."],
+            ["Animals", "Animal groups, adaptations and life processes."],
+            ["The Human Body", "The major systems and functions of the body."],
+            ["Materials", "Properties and uses of different materials."],
+            ["Forces", "Forces, movement and their effects."],
+            ["Energy", "Different forms and transfers of energy."],
+            ["Electricity", "Circuits, components and electrical ideas."],
+            ["Earth and Space", "The Earth, Moon, Sun and wider universe."],
+            ["Evolution", "How living things change over time."]
+        ]
+    },
+
+    "History": {
+        icon: "🏛️",
+        lessons: [
+            ["Ancient Egypt", "Life, society and achievements in Ancient Egypt."],
+            ["Ancient Greece", "Greek society, culture and achievements."],
+            ["Ancient Rome", "Roman society, expansion and legacy."],
+            ["The Anglo-Saxons", "Anglo-Saxon society and settlement."],
+            ["The Vikings", "Viking society, exploration and settlement."],
+            ["The Normans", "The Norman Conquest and its effects."],
+            ["Medieval Britain", "Life and society in medieval Britain."],
+            ["The Tudors", "The Tudor monarchy and society."],
+            ["The Industrial Revolution", "Industry, technology and social change."],
+            ["World War Two", "Key events and experiences of World War Two."]
+        ]
+    },
+
+    "Geography": {
+        icon: "🌍",
+        lessons: [
+            ["Map Skills", "Using maps, symbols, scale and direction."],
+            ["Rivers", "River features, processes and landscapes."],
+            ["Mountains", "Mountain formation and environments."],
+            ["Coasts", "Coastal processes and landscapes."],
+            ["Weather", "Weather patterns and measurements."],
+            ["Climate", "Climate zones and climate patterns."],
+            ["Rainforests", "Tropical rainforest environments."],
+            ["Population", "Population distribution and change."],
+            ["Settlements", "Settlement types and land use."],
+            ["Natural Resources", "Resources and how people use them."]
+        ]
+    },
+
+    "Computing": {
+        icon: "💻",
+        lessons: [
+            ["Algorithms", "Creating and understanding step-by-step instructions."],
+            ["Programming", "Core programming ideas and code."],
+            ["Variables", "Using variables to store information."],
+            ["Selection", "Making decisions in programs."],
+            ["Loops", "Repeating instructions efficiently."],
+            ["Data", "Collecting, storing and using data."],
+            ["Networks", "Understanding computer networks."],
+            ["Cyber Security", "Staying safe and secure online."],
+            ["Digital Media", "Creating and evaluating digital media."],
+            ["Computational Thinking", "Breaking problems into manageable steps."]
+        ]
+    },
+
+    "Art & Design": {
+        icon: "🎨",
+        lessons: [
+            ["Line", "Exploring line and mark-making."],
+            ["Shape", "Using shape in artwork."],
+            ["Colour", "Colour theory and colour choices."],
+            ["Texture", "Exploring visual and physical texture."],
+            ["Pattern", "Creating repeated and structured patterns."],
+            ["Form", "Understanding three-dimensional form."],
+            ["Drawing", "Developing drawing skills."],
+            ["Painting", "Exploring painting techniques."],
+            ["Sculpture", "Creating three-dimensional artwork."],
+            ["Artists and Movements", "Exploring artists and art movements."]
+        ]
+    },
+
+    "Music": {
+        icon: "🎵",
+        lessons: [
+            ["Rhythm", "Understanding rhythm and beats."],
+            ["Pulse", "Keeping and identifying a steady pulse."],
+            ["Melody", "Understanding musical melodies."],
+            ["Harmony", "Understanding sounds played together."],
+            ["Dynamics", "Exploring volume in music."],
+            ["Tempo", "Exploring speed in music."],
+            ["Notation", "Reading and understanding musical notation."],
+            ["Instruments", "Identifying instrument families."],
+            ["Composition", "Creating and developing musical ideas."],
+            ["Performance", "Preparing and evaluating performances."]
+        ]
+    },
+
+    "PE": {
+        icon: "🏃",
+        lessons: [
+            ["Fitness", "Understanding fitness and physical activity."],
+            ["Running", "Running technique and performance."],
+            ["Jumping", "Jumping technique and control."],
+            ["Throwing", "Throwing technique and accuracy."],
+            ["Football", "Football skills and tactics."],
+            ["Basketball", "Basketball skills and tactics."],
+            ["Gymnastics", "Movement, balance and control."],
+            ["Dance", "Movement, rhythm and expression."],
+            ["Teamwork", "Working effectively with others."],
+            ["Healthy Lifestyles", "Physical activity and healthy choices."]
+        ]
+    },
+
+    "Religious Education": {
+        icon: "🕊️",
+        lessons: [
+            ["Beliefs", "Exploring religious beliefs."],
+            ["Places of Worship", "Understanding places used for worship."],
+            ["Festivals", "Exploring religious festivals."],
+            ["Sacred Texts", "Understanding sacred writings."],
+            ["Prayer", "Exploring prayer and reflection."],
+            ["Religious Leaders", "Learning about important religious leaders."],
+            ["Symbols", "Understanding religious symbols."],
+            ["Community", "Religion and community life."],
+            ["Values", "Exploring religious and ethical values."],
+            ["Religious Diversity", "Understanding different religious traditions."]
+        ]
+    },
+
+    "PSHE": {
+        icon: "🧑‍🤝‍🧑",
+        lessons: [
+            ["Friendships", "Building positive and respectful friendships."],
+            ["Respect", "Understanding respect for others."],
+            ["Emotions", "Recognising and managing emotions."],
+            ["Online Safety", "Staying safe online."],
+            ["Healthy Choices", "Making healthy lifestyle choices."],
+            ["Bullying", "Understanding bullying and getting help."],
+            ["Relationships", "Healthy and respectful relationships."],
+            ["Money", "Understanding money and financial choices."],
+            ["Goals", "Setting realistic personal goals."],
+            ["Future Choices", "Thinking about future education and careers."]
+        ]
+    },
+
+    "Languages": {
+        icon: "🌐",
+        lessons: [
+            ["Greetings", "Common greetings and introductions."],
+            ["Numbers", "Numbers and counting."],
+            ["Family", "Talking about family."],
+            ["Colours", "Colours and descriptions."],
+            ["Food", "Food and drink vocabulary."],
+            ["School", "Vocabulary connected with school."],
+            ["Hobbies", "Talking about hobbies and interests."],
+            ["Descriptions", "Describing people and places."],
+            ["Travel", "Language for travel."],
+            ["Everyday Conversation", "Building useful everyday conversations."]
+        ]
+    },
+
+    "Design & Technology": {
+        icon: "🔧",
+        lessons: [
+            ["Design Briefs", "Understanding design problems and briefs."],
+            ["Research", "Researching users and existing products."],
+            ["Sketching", "Developing ideas through sketches."],
+            ["Materials", "Choosing suitable materials."],
+            ["Tools", "Using tools safely and effectively."],
+            ["Structures", "Understanding structural design."],
+            ["Mechanisms", "Exploring mechanisms and movement."],
+            ["Electronics", "Using basic electronic systems."],
+            ["Making", "Planning and making products."],
+            ["Evaluation", "Testing and evaluating designs."]
+        ]
+    },
+
+    "Business": {
+        icon: "💼",
+        lessons: [
+            ["Entrepreneurs", "Understanding entrepreneurs and enterprise."],
+            ["Business Ideas", "Developing business ideas."],
+            ["Customers", "Understanding customers and needs."],
+            ["Marketing", "Marketing products and services."],
+            ["Revenue", "Understanding business revenue."],
+            ["Costs", "Understanding business costs."],
+            ["Profit", "Calculating and understanding profit."],
+            ["Competition", "Understanding competition."],
+            ["Finance", "Basic business finance."],
+            ["Business Planning", "Creating and evaluating business plans."]
+        ]
+    },
+
+    "Drama": {
+        icon: "🎭",
+        lessons: [
+            ["Character", "Creating believable characters."],
+            ["Voice", "Using voice effectively."],
+            ["Movement", "Using movement and body language."],
+            ["Improvisation", "Creating scenes without a script."],
+            ["Script", "Understanding scripts and stage directions."],
+            ["Audience", "Understanding the relationship with an audience."],
+            ["Mime", "Communicating without spoken words."],
+            ["Emotion", "Communicating emotions through performance."],
+            ["Staging", "Using space and staging."],
+            ["Performance", "Preparing and evaluating performances."]
+        ]
+    },
+
+    "Media Studies": {
+        icon: "🎬",
+        lessons: [
+            ["Media Language", "Understanding how media communicates meaning."],
+            ["Representation", "Exploring representation in media."],
+            ["Audience", "Understanding media audiences."],
+            ["Advertising", "Analysing advertising."],
+            ["Film", "Exploring film techniques."],
+            ["Television", "Analysing television texts."],
+            ["News", "Understanding news media."],
+            ["Social Media", "Exploring social media."],
+            ["Photography", "Understanding photographic techniques."],
+            ["Media Production", "Planning and creating media products."]
+        ]
+    },
+
+    "Psychology": {
+        icon: "🧠",
+        lessons: [
+            ["Memory", "Understanding human memory."],
+            ["Learning", "Understanding how people learn."],
+            ["Development", "Understanding human development."],
+            ["Social Influence", "Understanding how people influence each other."],
+            ["Attachment", "Understanding attachment and relationships."],
+            ["Research Methods", "Understanding psychological research."],
+            ["Behaviour", "Understanding human behaviour."],
+            ["Personality", "Exploring personality."],
+            ["Stress", "Understanding stress and coping."],
+            ["Psychology in Everyday Life", "Applying psychology to everyday situations."]
+        ]
+    },
+
+    "Sociology": {
+        icon: "👥",
+        lessons: [
+            ["Family", "Understanding families and relationships."],
+            ["Education", "Understanding education and society."],
+            ["Crime", "Exploring crime and society."],
+            ["Social Class", "Understanding social class."],
+            ["Gender", "Exploring gender in society."],
+            ["Culture", "Understanding culture."],
+            ["Identity", "Exploring identity."],
+            ["Media", "Understanding media and society."],
+            ["Power", "Exploring power and inequality."],
+            ["Social Change", "Understanding how societies change."]
+        ]
+    },
+
+    "Economics": {
+        icon: "💰",
+        lessons: [
+            ["Scarcity", "Understanding limited resources."],
+            ["Supply", "Understanding supply."],
+            ["Demand", "Understanding demand."],
+            ["Markets", "Understanding markets."],
+            ["Prices", "Understanding how prices are determined."],
+            ["Competition", "Understanding competition."],
+            ["Inflation", "Understanding changes in prices."],
+            ["Employment", "Understanding employment and unemployment."],
+            ["Trade", "Understanding trade."],
+            ["Economic Growth", "Understanding economic growth."]
+        ]
+    }
+
+};
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 let currentYear = "";
 let currentSubject = "";
 let currentLesson = "";
+let currentLessonDescription = "";
 
+
+/* =========================================================
+   INITIALISE SUBJECTS
+========================================================= */
+
+function initialiseSubjects() {
+
+    const select =
+        document.getElementById("subject");
+
+    const grid =
+        document.getElementById("subjectGrid");
+
+    Object.keys(subjectData).forEach(subject => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = subject;
+        option.textContent = subject;
+
+        select.appendChild(option);
+
+
+        const card =
+            document.createElement("div");
+
+        card.className = "subject-card";
+
+        card.innerHTML = `
+            <div class="subject-icon">
+                ${subjectData[subject].icon}
+            </div>
+
+            <div class="subject-name">
+                ${subject}
+            </div>
+        `;
+
+        card.onclick = () => chooseSubject(subject);
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   SUBJECT / LESSON NAVIGATION
+========================================================= */
 
 function chooseSubject(subject) {
 
-    const year = document.getElementById("year").value;
+    const year =
+        document.getElementById("year").value;
 
     if (!year) {
 
         alert("Please choose a year first.");
-
-        document.getElementById("selectorSection")
-            .scrollIntoView({behavior:"smooth"});
-
         return;
+
     }
 
-    document.getElementById("subject").value = subject;
+    document.getElementById("subject").value =
+        subject;
 
     showLessons();
 
@@ -778,8 +990,8 @@ function showLessons() {
     if (!year || !subject) {
 
         alert("Please choose a year and subject.");
-
         return;
+
     }
 
     currentYear = year;
@@ -808,47 +1020,47 @@ function showLessons() {
 
     grid.innerHTML = "";
 
-    lessonNames.forEach((lesson,index) => {
+    subjectData[subject].lessons.forEach(
+        (lesson, index) => {
 
-        const card =
-            document.createElement("div");
+            const card =
+                document.createElement("div");
 
-        card.className = "lesson-card";
+            card.className = "lesson-card";
 
-        card.innerHTML = `
-            <div class="lesson-number">
-                ${index + 1}
-            </div>
+            card.innerHTML = `
+                <div class="lesson-number">
+                    ${index + 1}
+                </div>
 
-            <h3>${lesson[0]}</h3>
+                <h3>${lesson[0]}</h3>
 
-            <p>${lesson[1]}</p>
-        `;
+                <p>${lesson[1]}</p>
+            `;
 
-        card.onclick = () => {
+            card.onclick = () =>
+                openLesson(
+                    lesson[0],
+                    lesson[1]
+                );
 
-            openLesson(
-                lesson[0],
-                lesson[1]
-            );
+            grid.appendChild(card);
 
-        };
-
-        grid.appendChild(card);
-
-    });
+        }
+    );
 
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 
 }
 
 
-function openLesson(lesson,description) {
+function openLesson(lesson, description) {
 
     currentLesson = lesson;
+    currentLessonDescription = description;
 
     document.getElementById("lessonsSection")
         .style.display = "none";
@@ -858,662 +1070,79 @@ function openLesson(lesson,description) {
 
     document.getElementById("worksheetTitle")
         .textContent =
-        currentYear +
-        " • " +
-        currentSubject +
-        " • " +
-        lesson;
+        `${currentYear} • ${currentSubject} • ${currentLesson}`;
 
     document.getElementById("worksheetDescription")
         .textContent =
-        description +
-        " Complete all four progressive sheets.";
+        `${description} Four progressive sheets with three questions on every sheet.`;
 
     createAllSheets();
 
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 
 }
 
 
-function createAllSheets() {
+/* =========================================================
+   YEAR DIFFICULTY
+========================================================= */
 
-    const container =
-        document.getElementById("worksheets");
+function getYearNumber() {
 
-    container.innerHTML = "";
-
-    let allAnswers = "";
-
-    for(let sheet=1; sheet<=4; sheet++) {
-
-        const questions =
-            createQuestions(sheet);
-
-        const sheetElement =
-            document.createElement("div");
-
-        sheetElement.className = "sheet";
-
-        let html = `
-
-            <div class="sheet-header">
-
-                <h1>
-                    ${currentYear} • ${currentSubject}
-                </h1>
-
-                <h2>
-                    ${currentLesson}
-                </h2>
-
-                <p>
-                    Sheet ${sheet} of 4
-                </p>
-
-            </div>
-
-        `;
-
-        questions.forEach((question,index) => {
-
-            html += createQuestionHTML(
-                question,
-                index,
-                sheet
-            );
-
-            allAnswers += `
-                <div>
-                    <strong>
-                        Sheet ${sheet}, Question ${index+1}:
-                    </strong>
-                    ${question.answer}
-                </div>
-            `;
-
-        });
-
-        sheetElement.innerHTML = html;
-
-        container.appendChild(sheetElement);
-
-    }
-
-    document.getElementById("answerContent")
-        .innerHTML = allAnswers;
-
-}
-
-
-function createQuestions(sheet) {
-
-    const questions = [];
-
-    for(let i=1;i<=3;i++) {
-
-        questions.push(
-            createQuestion(
-                sheet,
-                i
-            )
-        );
-
-    }
-
-    return questions;
-
-}
-
-
-function yearNumber() {
-
-    if(currentYear === "Reception") {
+    if (currentYear === "Reception") {
         return 0;
     }
 
     const match =
         currentYear.match(/\d+/);
 
-    return match ? Number(match[0]) : 6;
+    return match
+        ? Number(match[0])
+        : 6;
+}
+
+
+function difficultyNumber(sheet) {
+
+    const year =
+        getYearNumber();
+
+    return Math.max(
+        1,
+        year + sheet
+    );
 
 }
 
 
-function random(min,max) {
+/* =========================================================
+   RANDOM HELPERS
+========================================================= */
+
+function random(min, max) {
 
     return Math.floor(
         Math.random() *
-        (max-min+1)
+        (max - min + 1)
     ) + min;
-
-}
-
-
-function createQuestion(sheet,number) {
-
-    if(currentSubject === "Maths") {
-
-        return mathsQuestion(
-            sheet,
-            number
-        );
-
-    }
-
-    const types = [
-        "choice",
-        "truefalse",
-        "short",
-        "long"
-    ];
-
-    const type =
-        types[
-            (sheet + number) %
-            types.length
-        ];
-
-    if(type === "choice") {
-
-        return {
-
-            type:"choice",
-
-            text:
-                `Which statement best describes ${currentLesson}?`,
-
-            options:[
-                `It is an important part of ${currentSubject}.`,
-                `It has nothing to do with ${currentSubject}.`,
-                `It only applies to mathematics.`,
-                `It cannot be studied.`
-            ],
-
-            answer:
-                `It is an important part of ${currentSubject}.`
-
-        };
-
-    }
-
-    if(type === "truefalse") {
-
-        return {
-
-            type:"truefalse",
-
-            text:
-                `${currentLesson} is an area that can be studied and explained using evidence.`,
-
-            options:[
-                "True",
-                "False"
-            ],
-
-            answer:"True"
-
-        };
-
-    }
-
-    if(type === "short") {
-
-        return {
-
-            type:"short",
-
-            text:
-                `Write one key word connected with ${currentLesson}.`,
-
-            answer:"Answers will vary."
-
-        };
-
-    }
-
-    return {
-
-        type:"long",
-
-        text:
-            `Explain what you know about ${currentLesson}. Give at least two points.`,
-
-        answer:"Answers will vary."
-
-    };
-
-}
-
-
-function mathsQuestion(sheet,number) {
-
-    const y =
-        yearNumber();
-
-    let max;
-
-    if(y <= 2) {
-        max = 20 + sheet * 10;
-    }
-    else if(y <= 4) {
-        max = 100 + sheet * 50;
-    }
-    else if(y <= 6) {
-        max = 500 + sheet * 250;
-    }
-    else {
-        max = 1000 + sheet * 1000;
-    }
-
-
-    if(currentLesson === "Addition") {
-
-        const a =
-            random(
-                Math.max(1,max/4),
-                max
-            );
-
-        const b =
-            random(
-                Math.max(1,max/4),
-                max
-            );
-
-        return {
-
-            type:"working",
-
-            text:
-                `Calculate ${a} + ${b}. Show your working.`,
-
-            answer:
-                String(a+b)
-
-        };
-
-    }
-
-
-    if(currentLesson === "Subtraction") {
-
-        const a =
-            random(
-                Math.max(10,max/2),
-                max
-            );
-
-        const b =
-            random(
-                1,
-                Math.max(1,a-1)
-            );
-
-        return {
-
-            type:"working",
-
-            text:
-                `Calculate ${a} − ${b}. Show your working.`,
-
-            answer:
-                String(a-b)
-
-        };
-
-    }
-
-
-    if(currentLesson === "Multiplication") {
-
-        const a =
-            random(
-                2,
-                y <= 4 ? 12 : 20
-            );
-
-        const b =
-            random(
-                2,
-                sheet * 10
-            );
-
-        return {
-
-            type:"short",
-
-            text:
-                `Calculate ${a} × ${b}.`,
-
-            answer:
-                String(a*b)
-
-        };
-
-    }
-
-
-    if(currentLesson === "Division") {
-
-        const divisor =
-            random(
-                2,
-                y <= 4 ? 10 : 15
-            );
-
-        const answer =
-            random(
-                2,
-                sheet * 10
-            );
-
-        return {
-
-            type:"short",
-
-            text:
-                `Calculate ${divisor * answer} ÷ ${divisor}.`,
-
-            answer:
-                String(answer)
-
-        };
-
-    }
-
-
-    if(currentLesson === "Fractions") {
-
-        const denominator =
-            random(2,10);
-
-        const numerator =
-            random(
-                1,
-                denominator-1
-            );
-
-        const correct =
-            `${numerator}/${denominator}`;
-
-        return {
-
-            type:"choice",
-
-            text:
-                `Which fraction represents ${numerator} out of ${denominator} equal parts?`,
-
-            options:shuffle([
-                correct,
-                `${denominator}/${numerator}`,
-                `${numerator+1}/${denominator}`,
-                `1/${denominator+1}`
-            ]),
-
-            answer:correct
-
-        };
-
-    }
-
-
-    if(currentLesson === "Decimals") {
-
-        const whole =
-            random(1,20);
-
-        const decimal =
-            random(1,9);
-
-        const correct =
-            `${whole}.${decimal}`;
-
-        return {
-
-            type:"choice",
-
-            text:
-                `Which of these is ${correct}?`,
-
-            options:shuffle([
-                correct,
-                `${whole}.${decimal+1}`,
-                `${whole+1}.${decimal}`,
-                `${whole-1}.${decimal}`
-            ]),
-
-            answer:correct
-
-        };
-
-    }
-
-
-    if(currentLesson === "Percentages") {
-
-        const percent =
-            [10,20,25,50][
-                random(0,3)
-            ];
-
-        const amount =
-            random(2,10)*10;
-
-        return {
-
-            type:"short",
-
-            text:
-                `Find ${percent}% of ${amount}.`,
-
-            answer:
-                String(
-                    amount*percent/100
-                )
-
-        };
-
-    }
-
-
-    if(currentLesson === "Geometry") {
-
-        const questions = [
-
-            ["How many sides does a triangle have?","3"],
-            ["How many sides does a square have?","4"],
-            ["How many sides does a pentagon have?","5"],
-            ["How many degrees are in a right angle?","90"],
-            ["How many degrees are in a straight angle?","180"]
-
-        ];
-
-        const q =
-            questions[
-                random(
-                    0,
-                    questions.length-1
-                )
-            ];
-
-        return {
-
-            type:"short",
-
-            text:q[0],
-
-            answer:q[1]
-
-        };
-
-    }
-
-
-    if(currentLesson === "Measurement") {
-
-        const metres =
-            random(1,10);
-
-        return {
-
-            type:"short",
-
-            text:
-                `How many centimetres are there in ${metres} metre${metres === 1 ? "" : "s"}?`,
-
-            answer:
-                String(metres*100)
-
-        };
-
-    }
-
-
-    return {
-
-        type:"working",
-
-        text:
-            `A book costs £${random(2,10)}. Work out how much ${random(2,5)} books would cost.`,
-
-        answer:
-            "Answers will vary."
-
-    };
-
-}
-
-
-function createQuestionHTML(question,index,sheet) {
-
-    const id =
-        `s${sheet}q${index}`;
-
-    let answer = "";
-
-    if(question.type === "short") {
-
-        answer = `
-            <input
-                class="small-answer"
-                type="text"
-                id="${id}"
-            >
-        `;
-
-    }
-
-    else if(question.type === "long") {
-
-        answer = `
-            <textarea
-                class="answer-box"
-                id="${id}"
-            ></textarea>
-        `;
-
-    }
-
-    else if(question.type === "working") {
-
-        answer = `
-
-            <div>
-                <strong>Working out:</strong>
-            </div>
-
-            <textarea
-                class="working-box"
-                id="${id}-working"
-            ></textarea>
-
-            <div>
-                <strong>Final answer:</strong>
-            </div>
-
-            <input
-                class="small-answer"
-                type="text"
-                id="${id}"
-            >
-
-        `;
-
-    }
-
-    else {
-
-        answer = `
-
-            <div class="options">
-
-                ${question.options.map(option => `
-
-                    <label class="option">
-
-                        <input
-                            type="radio"
-                            name="${id}"
-                            value="${escapeHTML(option)}"
-                        >
-
-                        ${escapeHTML(option)}
-
-                    </label>
-
-                `).join("")}
-
-            </div>
-
-        `;
-
-    }
-
-
-    return `
-
-        <div class="question">
-
-            <div class="question-title">
-                Question ${index+1}
-            </div>
-
-            <div class="question-text">
-                ${question.text}
-            </div>
-
-            ${answer}
-
-        </div>
-
-    `;
-
-}
-
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
 
 }
 
 
 function shuffle(array) {
 
-    for(let i=array.length-1;i>0;i--) {
+    for (
+        let i = array.length - 1;
+        i > 0;
+        i--
+    ) {
 
         const j =
             Math.floor(
-                Math.random()*(i+1)
+                Math.random() * (i + 1)
             );
 
         [
@@ -1531,32 +1160,1270 @@ function shuffle(array) {
 }
 
 
-function newQuestions() {
+function escapeHTML(value) {
 
-    createAllSheets();
-
-    document.getElementById("answers")
-        .style.display = "none";
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
 
 
-function showAnswers() {
+/* =========================================================
+   CREATE ALL FOUR SHEETS
+========================================================= */
+
+function createAllSheets() {
+
+    const container =
+        document.getElementById("worksheets");
+
+    container.innerHTML = "";
+
+    document.getElementById("answers")
+        .style.display = "none";
+
+    let answerHTML = "";
+
+    for (let sheet = 1; sheet <= 4; sheet++) {
+
+        const questions =
+            createThreeQuestions(sheet);
+
+        /*
+         * SAFETY CHECK:
+         * Every sheet MUST have exactly 3 questions.
+         */
+
+        while (questions.length < 3) {
+
+            questions.push(
+                createGenericQuestion(
+                    sheet,
+                    questions.length + 1
+                )
+            );
+
+        }
+
+        const sheetElement =
+            document.createElement("div");
+
+        sheetElement.className = "sheet";
+
+        const difficultyNames = [
+            "",
+            "Starter",
+            "Developing",
+            "Challenge",
+            "Mastery"
+        ];
+
+        let html = `
+
+            <div class="sheet-header">
+
+                <h1>
+                    ${escapeHTML(currentYear)}
+                    •
+                    ${escapeHTML(currentSubject)}
+                </h1>
+
+                <h2>
+                    ${escapeHTML(currentLesson)}
+                </h2>
+
+                <p>
+                    Sheet ${sheet} of 4
+                </p>
+
+                <span class="difficulty">
+                    ${difficultyNames[sheet]}
+                </span>
+
+            </div>
+
+        `;
+
+        questions.slice(0, 3).forEach(
+            (question, index) => {
+
+                html += createQuestionHTML(
+                    question,
+                    index,
+                    sheet
+                );
+
+                answerHTML += `
+                    <div>
+                        <strong>
+                            Sheet ${sheet},
+                            Question ${index + 1}:
+                        </strong>
+                        ${escapeHTML(question.answer)}
+                    </div>
+                `;
+
+            }
+        );
+
+        sheetElement.innerHTML = html;
+
+        container.appendChild(sheetElement);
+
+    }
+
+    document.getElementById("answerContent")
+        .innerHTML = answerHTML;
+
+}
+
+
+/* =========================================================
+   CREATE EXACTLY 3 QUESTIONS
+========================================================= */
+
+function createThreeQuestions(sheet) {
+
+    const questions = [];
+
+    for (let i = 1; i <= 3; i++) {
+
+        questions.push(
+            createSubjectQuestion(
+                sheet,
+                i
+            )
+        );
+
+    }
+
+    return questions;
+
+}
+
+
+/* =========================================================
+   SUBJECT QUESTION GENERATOR
+========================================================= */
+
+function createSubjectQuestion(sheet, number) {
+
+    if (currentSubject === "Maths") {
+        return createMathsQuestion(sheet, number);
+    }
+
+    if (currentSubject === "English") {
+        return createEnglishQuestion(sheet, number);
+    }
+
+    if (currentSubject === "Science") {
+        return createScienceQuestion(sheet, number);
+    }
+
+    if (currentSubject === "History") {
+        return createHistoryQuestion(sheet, number);
+    }
+
+    if (currentSubject === "Geography") {
+        return createGeographyQuestion(sheet, number);
+    }
+
+    if (currentSubject === "Computing") {
+        return createComputingQuestion(sheet, number);
+    }
+
+    return createGeneralSubjectQuestion(
+        sheet,
+        number
+    );
+
+}
+
+
+/* =========================================================
+   MATHS
+========================================================= */
+
+function createMathsQuestion(sheet, number) {
+
+    const year =
+        getYearNumber();
+
+    const level =
+        year + sheet;
+
+    if (currentLesson === "Number and Place Value") {
+
+        const max =
+            Math.max(
+                100,
+                level * 100
+            );
+
+        const n =
+            random(
+                10,
+                max
+            );
+
+        if (number === 1) {
+
+            return {
+                type: "short",
+                text: `Write the number ${n} in words.`,
+                answer: "Answers vary depending on number."
+            };
+
+        }
+
+        if (number === 2) {
+
+            return {
+                type: "choice",
+                text: `What is the value of the ${random(1, 3)} digit in ${n}?`,
+                options: shuffle([
+                    "Ones",
+                    "Tens",
+                    "Hundreds",
+                    "Thousands"
+                ]),
+                answer: "The value depends on the selected digit."
+            };
+
+        }
+
+        return {
+            type: "working",
+            text: `Order these numbers from smallest to largest: ${n}, ${n + 12}, ${Math.max(1,n - 8)}, ${n + 25}.`,
+            answer: "Order the four numbers correctly."
+        };
+
+    }
+
+
+    if (currentLesson === "Addition") {
+
+        const max =
+            Math.max(
+                20,
+                level * 25
+            );
+
+        const a = random(1, max);
+        const b = random(1, max);
+
+        return {
+            type: "working",
+            text: `Calculate ${a} + ${b}. Show your working.`,
+            answer: String(a + b)
+        };
+
+    }
+
+
+    if (currentLesson === "Subtraction") {
+
+        const max =
+            Math.max(
+                30,
+                level * 30
+            );
+
+        const a = random(
+            Math.floor(max / 2),
+            max
+        );
+
+        const b =
+            random(
+                1,
+                a - 1
+            );
+
+        return {
+            type: "working",
+            text: `Calculate ${a} − ${b}. Show your working.`,
+            answer: String(a - b)
+        };
+
+    }
+
+
+    if (currentLesson === "Multiplication") {
+
+        const a =
+            random(
+                2,
+                Math.min(
+                    20,
+                    4 + sheet * 4
+                )
+            );
+
+        const b =
+            random(
+                2,
+                Math.min(
+                    20,
+                    5 + level
+                )
+            );
+
+        return {
+            type: "short",
+            text: `Calculate ${a} × ${b}.`,
+            answer: String(a * b)
+        };
+
+    }
+
+
+    if (currentLesson === "Division") {
+
+        const divisor =
+            random(
+                2,
+                Math.min(
+                    12,
+                    3 + sheet * 2
+                )
+            );
+
+        const answer =
+            random(
+                2,
+                Math.min(
+                    20,
+                    5 + level
+                )
+            );
+
+        return {
+            type: "short",
+            text: `Calculate ${divisor * answer} ÷ ${divisor}.`,
+            answer: String(answer)
+        };
+
+    }
+
+
+    if (currentLesson === "Fractions") {
+
+        const denominator =
+            random(2, 12);
+
+        const numerator =
+            random(
+                1,
+                denominator - 1
+            );
+
+        const correct =
+            `${numerator}/${denominator}`;
+
+        return {
+            type: "choice",
+            text:
+                `Which fraction represents ${numerator} out of ${denominator} equal parts?`,
+            options: shuffle([
+                correct,
+                `${denominator}/${numerator}`,
+                `${numerator + 1}/${denominator}`,
+                `1/${denominator}`
+            ]),
+            answer: correct
+        };
+
+    }
+
+
+    if (currentLesson === "Decimals") {
+
+        const whole =
+            random(
+                1,
+                10 + level
+            );
+
+        const decimal =
+            random(
+                1,
+                9
+            );
+
+        const correct =
+            `${whole}.${decimal}`;
+
+        return {
+            type: "choice",
+            text:
+                `Which number is written as ${correct}?`,
+            options: shuffle([
+                correct,
+                `${whole}.${decimal + 1}`,
+                `${whole + 1}.${decimal}`,
+                `${whole - 1}.${decimal}`
+            ]),
+            answer: correct
+        };
+
+    }
+
+
+    if (currentLesson === "Percentages") {
+
+        const percentage =
+            [10, 20, 25, 50][
+                random(0, 3)
+            ];
+
+        const amount =
+            random(2, 10) * 10;
+
+        return {
+            type: "short",
+            text:
+                `Find ${percentage}% of ${amount}.`,
+            answer:
+                String(
+                    amount * percentage / 100
+                )
+        };
+
+    }
+
+
+    if (currentLesson === "Geometry and Angles") {
+
+        const questions = [
+
+            ["How many degrees are in a right angle?", "90"],
+            ["How many degrees are in a straight angle?", "180"],
+            ["How many sides does a pentagon have?", "5"],
+            ["How many sides does a hexagon have?", "6"]
+
+        ];
+
+        const q =
+            questions[
+                random(
+                    0,
+                    questions.length - 1
+                )
+            ];
+
+        return {
+            type: "short",
+            text: q[0],
+            answer: q[1]
+        };
+
+    }
+
+
+    if (currentLesson === "Measurement") {
+
+        const metres =
+            random(
+                1,
+                10 + sheet
+            );
+
+        return {
+            type: "short",
+            text:
+                `How many centimetres are there in ${metres} metre${metres === 1 ? "" : "s"}?`,
+            answer:
+                String(metres * 100)
+        };
+
+    }
+
+    return createGenericQuestion(
+        sheet,
+        number
+    );
+
+}
+
+
+/* =========================================================
+   ENGLISH
+========================================================= */
+
+function createEnglishQuestion(sheet, number) {
+
+    const lesson =
+        currentLesson;
+
+    if (lesson === "Nouns") {
+
+        return {
+            type: "choice",
+            text: "Which word is a noun?",
+            options: shuffle([
+                "house",
+                "quickly",
+                "beautiful",
+                "jump"
+            ]),
+            answer: "house"
+        };
+
+    }
+
+    if (lesson === "Verbs") {
+
+        return {
+            type: "short",
+            text:
+                "Write a suitable verb to complete: The dog ______ across the garden.",
+            answer: "Answers vary."
+        };
+
+    }
+
+    if (lesson === "Adjectives") {
+
+        return {
+            type: "short",
+            text:
+                "Write two adjectives that could describe a storm.",
+            answer: "Answers vary."
+        };
+
+    }
+
+    if (lesson === "Adverbs") {
+
+        return {
+            type: "choice",
+            text:
+                "Which word is an adverb?",
+            options: shuffle([
+                "quickly",
+                "bright",
+                "runner",
+                "jump"
+            ]),
+            answer: "quickly"
+        };
+
+    }
+
+    if (lesson === "Punctuation") {
+
+        return {
+            type: "short",
+            text:
+                "Add the correct punctuation: Where are you going",
+            answer: "Where are you going?"
+        };
+
+    }
+
+    if (lesson === "Sentence Structure") {
+
+        return {
+            type: "long",
+            text:
+                "Write a complete sentence containing a subject, verb and object.",
+            answer: "Answers vary."
+        };
+
+    }
+
+    if (lesson === "Paragraphs") {
+
+        return {
+            type: "long",
+            text:
+                "Explain two things that make a paragraph effective.",
+            answer: "Answers vary."
+        };
+
+    }
+
+    if (lesson === "Vocabulary") {
+
+        return {
+            type: "short",
+            text:
+                "Write a synonym for the word 'happy'.",
+            answer: "joyful / pleased / cheerful or similar"
+        };
+
+    }
+
+    if (lesson === "Comprehension") {
+
+        return {
+            type: "long",
+            text:
+                "Read this sentence: 'The small boat slowly crossed the wide river.' What can you infer about the boat's journey?",
+            answer: "Answers vary."
+        };
+
+    }
+
+    return {
+        type: "long",
+        text:
+            "Write a short paragraph using descriptive language and at least two different sentence types.",
+        answer: "Answers vary."
+    };
+
+}
+
+
+/* =========================================================
+   SCIENCE
+========================================================= */
+
+function createScienceQuestion(sheet, number) {
+
+    const data = {
+
+        "Living Things": [
+            "Name one characteristic of a living thing.",
+            "What do plants need to grow?",
+            "Why are animals classified into different groups?"
+        ],
+
+        "Plants": [
+            "What part of a plant absorbs water?",
+            "What is photosynthesis?",
+            "Explain why plants need sunlight."
+        ],
+
+        "Animals": [
+            "Name one group of animals.",
+            "What is an adaptation?",
+            "Explain how an animal's adaptation can help it survive."
+        ],
+
+        "The Human Body": [
+            "Name one major organ in the human body.",
+            "What is the function of the heart?",
+            "Explain why the body needs oxygen."
+        ],
+
+        "Materials": [
+            "Name one material that is waterproof.",
+            "What is a property of a material?",
+            "Explain why different materials are used for different objects."
+        ],
+
+        "Forces": [
+            "Name one type of force.",
+            "What happens when a force is applied to an object?",
+            "Explain how forces can change an object's movement."
+        ],
+
+        "Energy": [
+            "Name one form of energy.",
+            "What is energy used for?",
+            "Explain one example of energy being transferred."
+        ],
+
+        "Electricity": [
+            "Name one component used in a circuit.",
+            "What does a switch do in a circuit?",
+            "Explain what is needed to make a complete circuit."
+        ],
+
+        "Earth and Space": [
+            "What is the name of our planet?",
+            "What object does Earth orbit?",
+            "Explain why we experience day and night."
+        ],
+
+        "Evolution": [
+            "What does the word evolution mean?",
+            "What is an adaptation?",
+            "Explain how useful characteristics can become common in a population."
+        ]
+
+    };
+
+    const question =
+        data[currentLesson][
+            (number - 1) % 3
+        ];
+
+    return {
+        type:
+            number === 1
+                ? "short"
+                : number === 2
+                    ? "choice"
+                    : "long",
+
+        text: question,
+
+        options:
+            number === 2
+                ? [
+                    "A change or process related to the topic",
+                    "Something unrelated",
+                    "A type of measurement only",
+                    "None of these"
+                ]
+                : undefined,
+
+        answer:
+            number === 1
+                ? "Answers vary."
+                : number === 2
+                    ? "A change or process related to the topic"
+                    : "Answers vary."
+    };
+
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+function createHistoryQuestion(sheet, number) {
+
+    const questions = {
+
+        "Ancient Egypt": [
+            "What river was important to Ancient Egyptian civilisation?",
+            "What were pyramids used for?",
+            "Explain why the River Nile was important to Ancient Egypt."
+        ],
+
+        "Ancient Greece": [
+            "Where did the Olympic Games originate?",
+            "What was a city-state?",
+            "Explain one achievement of Ancient Greek civilisation."
+        ],
+
+        "Ancient Rome": [
+            "What was Rome?",
+            "What was the Roman army known for?",
+            "Explain one way the Romans influenced Britain."
+        ],
+
+        "The Anglo-Saxons": [
+            "Who were the Anglo-Saxons?",
+            "Why did Anglo-Saxons settle in Britain?",
+            "Describe one feature of Anglo-Saxon life."
+        ],
+
+        "The Vikings": [
+            "Where did the Vikings come from?",
+            "What were Vikings known for?",
+            "Explain why Vikings travelled to other countries."
+        ],
+
+        "The Normans": [
+            "Who became king after the Norman Conquest?",
+            "What was the Bayeux Tapestry?",
+            "Explain one consequence of the Norman Conquest."
+        ],
+
+        "Medieval Britain": [
+            "What does medieval mean?",
+            "What was a castle used for?",
+            "Describe one difference between rich and poor medieval people."
+        ],
+
+        "The Tudors": [
+            "Who was Henry VIII?",
+            "Why is the Tudor period important?",
+            "Explain one major change during the Tudor period."
+        ],
+
+        "The Industrial Revolution": [
+            "What was the Industrial Revolution?",
+            "Why were factories important?",
+            "Explain one way industrialisation changed people's lives."
+        ],
+
+        "World War Two": [
+            "When did World War Two begin?",
+            "What was rationing?",
+            "Explain one way the war affected civilians."
+        ]
+
+    };
+
+    const q =
+        questions[currentLesson][
+            (number - 1) % 3
+        ];
+
+    return {
+        type:
+            number === 1
+                ? "short"
+                : number === 2
+                    ? "truefalse"
+                    : "long",
+
+        text: q,
+
+        options:
+            number === 2
+                ? ["True", "False"]
+                : undefined,
+
+        answer:
+            number === 2
+                ? "True"
+                : "Answers vary."
+    };
+
+}
+
+
+/* =========================================================
+   GEOGRAPHY
+========================================================= */
+
+function createGeographyQuestion(sheet, number) {
+
+    const questions = {
+
+        "Map Skills": [
+            "What is a map symbol?",
+            "What does a compass help you find?",
+            "Explain why map scale is useful."
+        ],
+
+        "Rivers": [
+            "What is the source of a river?",
+            "Where does a river usually end?",
+            "Explain one process that changes a river valley."
+        ],
+
+        "Mountains": [
+            "What is a mountain?",
+            "How can mountains be formed?",
+            "Explain why mountain environments can be challenging."
+        ],
+
+        "Coasts": [
+            "What is a coastline?",
+            "What is erosion?",
+            "Explain how waves can change a coastline."
+        ],
+
+        "Weather": [
+            "What is weather?",
+            "Name one instrument used to measure weather.",
+            "Explain why weather can change from day to day."
+        ],
+
+        "Climate": [
+            "What is climate?",
+            "What is a climate zone?",
+            "Explain the difference between weather and climate."
+        ],
+
+        "Rainforests": [
+            "Where are tropical rainforests usually found?",
+            "What is a rainforest?",
+            "Explain one reason rainforests are important."
+        ],
+
+        "Population": [
+            "What does population mean?",
+            "What is population density?",
+            "Explain one reason why populations change."
+        ],
+
+        "Settlements": [
+            "What is a settlement?",
+            "Name one type of settlement.",
+            "Explain why people choose particular places to settle."
+        ],
+
+        "Natural Resources": [
+            "What is a natural resource?",
+            "Give one example of a natural resource.",
+            "Explain why resources need to be managed carefully."
+        ]
+
+    };
+
+    const q =
+        questions[currentLesson][
+            (number - 1) % 3
+        ];
+
+    return {
+        type:
+            number === 1
+                ? "short"
+                : number === 2
+                    ? "choice"
+                    : "long",
+
+        text: q,
+
+        options:
+            number === 2
+                ? shuffle([
+                    "A geographical feature or idea",
+                    "A musical instrument",
+                    "A type of food",
+                    "None of these"
+                ])
+                : undefined,
+
+        answer:
+            number === 2
+                ? "A geographical feature or idea"
+                : "Answers vary."
+    };
+
+}
+
+
+/* =========================================================
+   COMPUTING
+========================================================= */
+
+function createComputingQuestion(sheet, number) {
+
+    const questions = {
+
+        "Algorithms": [
+            "What is an algorithm?",
+            "Why should instructions in an algorithm be clear?",
+            "Write an algorithm for making a simple sandwich."
+        ],
+
+        "Programming": [
+            "What is a computer program?",
+            "What is code used for?",
+            "Describe how a programmer can test a program."
+        ],
+
+        "Variables": [
+            "What is a variable?",
+            "What type of information can a variable store?",
+            "Give an example of a variable that could be used in a game."
+        ],
+
+        "Selection": [
+            "What is selection in programming?",
+            "What does an IF statement do?",
+            "Write an example of a decision a program could make."
+        ],
+
+        "Loops": [
+            "What is a loop?",
+            "Why are loops useful?",
+            "Describe a situation where a loop would make a program shorter."
+        ],
+
+        "Data": [
+            "What is data?",
+            "Give one example of data.",
+            "Explain why data needs to be stored carefully."
+        ],
+
+        "Networks": [
+            "What is a computer network?",
+            "What is the internet?",
+            "Explain one advantage of connecting computers together."
+        ],
+
+        "Cyber Security": [
+            "What is cyber security?",
+            "Why should passwords be kept private?",
+            "Describe two ways to stay safer online."
+        ],
+
+        "Digital Media": [
+            "What is digital media?",
+            "Give one example of digital media.",
+            "Explain how digital media can communicate information."
+        ],
+
+        "Computational Thinking": [
+            "What is computational thinking?",
+            "What does decomposition mean?",
+            "Explain how breaking a large problem into smaller parts can help."
+        ]
+
+    };
+
+    const q =
+        questions[currentLesson][
+            (number - 1) % 3
+        ];
+
+    return {
+        type:
+            number === 1
+                ? "short"
+                : number === 2
+                    ? "choice"
+                    : "long",
+
+        text: q,
+
+        options:
+            number === 2
+                ? shuffle([
+                    "It performs a specific function",
+                    "It is a type of computer screen",
+                    "It is a keyboard key",
+                    "It is a type of printer"
+                ])
+                : undefined,
+
+        answer:
+            number === 2
+                ? "It performs a specific function"
+                : "Answers vary."
+    };
+
+}
+
+
+/* =========================================================
+   ALL OTHER SUBJECTS
+========================================================= */
+
+function createGeneralSubjectQuestion(sheet, number) {
+
+    const lesson =
+        currentLesson;
+
+    const subject =
+        currentSubject;
+
+    const prompts = [
+
+        `What is one important idea connected with ${lesson}?`,
+
+        `Which statement best describes ${lesson}?`,
+
+        `Explain how ${lesson} is connected to ${subject}.`
+
+    ];
+
+    if (number === 1) {
+
+        return {
+            type: "short",
+            text: prompts[0],
+            answer: "Answers vary."
+        };
+
+    }
+
+    if (number === 2) {
+
+        return {
+            type: "choice",
+            text: prompts[1],
+
+            options: shuffle([
+                `${lesson} is an important area within ${subject}.`,
+                `${lesson} has no connection to ${subject}.`,
+                `${lesson} only applies to mathematics.`,
+                `${lesson} cannot be studied.`
+            ]),
+
+            answer:
+                `${lesson} is an important area within ${subject}.`
+        };
+
+    }
+
+    return {
+        type: "long",
+        text: prompts[2],
+        answer: "Answers vary."
+    };
+
+}
+
+
+function createGenericQuestion(sheet, number) {
+
+    return {
+        type: "long",
+
+        text:
+            `Explain one thing you have learned about ${currentLesson}. Give as much detail as you can.`,
+
+        answer:
+            "Answers vary."
+    };
+
+}
+
+
+/* =========================================================
+   QUESTION HTML
+========================================================= */
+
+function createQuestionHTML(question, index, sheet) {
+
+    const id =
+        `sheet${sheet}question${index}`;
+
+    let answerHTML = "";
+
+    if (question.type === "short") {
+
+        answerHTML = `
+            <input
+                class="small-answer"
+                type="text"
+                aria-label="Answer"
+            >
+        `;
+
+    }
+
+    else if (question.type === "long") {
+
+        answerHTML = `
+            <textarea
+                class="answer-box"
+                aria-label="Answer"
+            ></textarea>
+        `;
+
+    }
+
+    else if (question.type === "working") {
+
+        answerHTML = `
+            <strong>Working out:</strong>
+
+            <textarea
+                class="working-box"
+                aria-label="Working out"
+            ></textarea>
+
+            <strong>Final answer:</strong>
+
+            <br><br>
+
+            <input
+                class="small-answer"
+                type="text"
+                aria-label="Final answer"
+            >
+        `;
+
+    }
+
+    else if (question.type === "truefalse") {
+
+        answerHTML = `
+            <div class="truefalse">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="${id}"
+                    >
+                    True
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="${id}"
+                    >
+                    False
+                </label>
+
+            </div>
+        `;
+
+    }
+
+    else if (question.type === "choice") {
+
+        answerHTML = `
+            <div class="options">
+
+                ${question.options.map(
+                    option => `
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="${id}"
+                        >
+
+                        ${escapeHTML(option)}
+
+                    </label>
+
+                `
+                ).join("")}
+
+            </div>
+        `;
+
+    }
+
+    return `
+
+        <div class="question">
+
+            <div class="question-title">
+                Question ${index + 1}
+            </div>
+
+            <div class="question-text">
+                ${escapeHTML(question.text)}
+            </div>
+
+            ${answerHTML}
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+function newQuestions() {
+
+    createAllSheets();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+function toggleAnswers() {
 
     const answers =
         document.getElementById("answers");
 
-    if(
+    answers.style.display =
         answers.style.display === "block"
-    ) {
-
-        answers.style.display = "none";
-
-    } else {
-
-        answers.style.display = "block";
-
-    }
+            ? "none"
+            : "block";
 
 }
 
@@ -1570,8 +2437,8 @@ function backLessons() {
         .style.display = "block";
 
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 
 }
@@ -1589,8 +2456,8 @@ function backSubjects() {
         .style.display = "block";
 
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 
 }
@@ -1611,8 +2478,8 @@ function home() {
         .style.display = "block";
 
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 
 }
@@ -1626,10 +2493,10 @@ function subjects() {
 
         document.getElementById("subjectsSection")
             .scrollIntoView({
-                behavior:"smooth"
+                behavior: "smooth"
             });
 
-    },100);
+    }, 100);
 
 }
 
@@ -1638,10 +2505,17 @@ function findLesson() {
 
     document.getElementById("selectorSection")
         .scrollIntoView({
-            behavior:"smooth"
+            behavior: "smooth"
         });
 
 }
+
+
+/* =========================================================
+   START
+========================================================= */
+
+initialiseSubjects();
 
 </script>
 
